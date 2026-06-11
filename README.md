@@ -18,7 +18,7 @@ Historical international results, player data, Redis, Celery, monitoring, and de
 
 ## MVP Status
 
-This repository is currently a local MVP. It is ready to run with Docker Compose, but it has not yet been deployed to a public environment.
+This repository is currently a local MVP. It is ready to run with Docker Compose in development mode or with a production-like local stack, but it has not yet been deployed to a public environment.
 
 The prediction model is a seeded baseline: it combines hand-maintained Elo-style ratings, simple attack/defence strengths, a host adjustment, and a Poisson scoreline model. It is useful for demonstrating the product flow, but it is not yet trained or backtested on historical international match data.
 
@@ -33,14 +33,14 @@ cp .env.example .env
 Start the full stack:
 
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
 In another terminal, run the migration and seed data:
 
 ```bash
-docker-compose exec backend alembic upgrade head
-docker-compose exec backend python -m app.data_pipeline.seed_worldcup
+docker compose exec backend alembic upgrade head
+docker compose exec backend python -m app.data_pipeline.seed_worldcup
 ```
 
 Open:
@@ -50,6 +50,24 @@ Open:
 - Upcoming matches: http://localhost:8000/matches/upcoming
 - First match prediction: http://localhost:8000/predictions/1
 - Group A table: http://localhost:8000/groups/A/table
+
+## Production-Like Smoke Test
+
+Use the production Compose file to verify the non-reload backend image and Nginx-served frontend:
+
+```bash
+docker compose down
+docker compose -f docker-compose.prod.yml up --build -d
+docker compose -f docker-compose.prod.yml exec backend alembic upgrade head
+docker compose -f docker-compose.prod.yml exec backend python -m app.data_pipeline.seed_worldcup
+```
+
+Open:
+
+- Frontend: http://localhost:5173
+- Backend health: http://localhost:8000/health
+
+Deployment notes live in [docs/deployment.md](docs/deployment.md).
 
 ## Backend Tests
 
@@ -80,8 +98,8 @@ The current model is intentionally simple and transparent. See [docs/limitations
 
 ## Roadmap
 
-1. Verify Docker Compose with PostgreSQL end-to-end.
-2. Deploy the MVP with a production PostgreSQL database.
-3. Add historical international results cleaning.
-4. Replace seeded strengths with ratings built from cleaned historical matches.
-5. Add official tiebreaker logic, best-third-place ranking, and knockout-stage simulation.
+1. Deploy the MVP with a production PostgreSQL database.
+2. Add historical international results cleaning.
+3. Replace seeded strengths with ratings built from cleaned historical matches.
+4. Add official tiebreaker logic, best-third-place ranking, and knockout-stage simulation.
+5. Add monitoring, screenshots, and demo polish.
