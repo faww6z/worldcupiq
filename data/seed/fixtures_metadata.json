@@ -1,0 +1,7 @@
+{
+  "source_name": "FIFA World Cup 2026 official schedule",
+  "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/match-schedule-fixtures-results-teams-stadiums",
+  "last_verified": "2026-06-11",
+  "coverage": "Full group-stage fixture seed covering 72 matches across Groups A-L. Knockout fixtures remain deferred to a later data milestone.",
+  "notes": "Seed files are intentionally manual and editable for the MVP. Fixtures were checked against the FIFA schedule reference and group-stage match pages; status and scores should be updated as the tournament progresses."
+}

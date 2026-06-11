@@ -1,0 +1,49 @@
+services:
+  db:
+    image: postgres:16
+    container_name: worldcupiq-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: worldcupiq
+    ports:
+      - "5432:5432"
+    volumes:
+      - worldcupiq_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d worldcupiq"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build: ./backend
+    container_name: worldcupiq-backend
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg2://postgres:postgres@db:5432/worldcupiq}
+      ENVIRONMENT: ${ENVIRONMENT:-development}
+      BACKEND_CORS_ORIGINS: ${BACKEND_CORS_ORIGINS:-http://localhost:5173,http://127.0.0.1:5173}
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app/backend
+      - ./data:/app/data
+
+  frontend:
+    build: ./frontend
+    container_name: worldcupiq-frontend
+    environment:
+      VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8000}
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app/frontend
+      - /app/frontend/node_modules
+
+volumes:
+  worldcupiq_pgdata:

@@ -1,0 +1,2 @@
+"""WorldCupIQ backend package."""
+

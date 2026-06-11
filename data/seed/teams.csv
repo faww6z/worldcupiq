@@ -1,0 +1,49 @@
+code,name,group_code,confederation,is_host
+MEX,Mexico,A,CONCACAF,true
+RSA,South Africa,A,CAF,false
+KOR,South Korea,A,AFC,false
+CZE,Czech Republic,A,UEFA,false
+CAN,Canada,B,CONCACAF,true
+BIH,Bosnia and Herzegovina,B,UEFA,false
+QAT,Qatar,B,AFC,false
+SUI,Switzerland,B,UEFA,false
+HAI,Haiti,C,CONCACAF,false
+SCO,Scotland,C,UEFA,false
+BRA,Brazil,C,CONMEBOL,false
+MAR,Morocco,C,CAF,false
+USA,United States,D,CONCACAF,true
+PAR,Paraguay,D,CONMEBOL,false
+AUS,Australia,D,AFC,false
+TUR,Turkey,D,UEFA,false
+CIV,Ivory Coast,E,CAF,false
+ECU,Ecuador,E,CONMEBOL,false
+GER,Germany,E,UEFA,false
+CUW,Curacao,E,CONCACAF,false
+NED,Netherlands,F,UEFA,false
+JPN,Japan,F,AFC,false
+SWE,Sweden,F,UEFA,false
+TUN,Tunisia,F,CAF,false
+IRN,Iran,G,AFC,false
+NZL,New Zealand,G,OFC,false
+BEL,Belgium,G,UEFA,false
+EGY,Egypt,G,CAF,false
+KSA,Saudi Arabia,H,AFC,false
+URU,Uruguay,H,CONMEBOL,false
+ESP,Spain,H,UEFA,false
+CPV,Cape Verde,H,CAF,false
+FRA,France,I,UEFA,false
+SEN,Senegal,I,CAF,false
+IRQ,Iraq,I,AFC,false
+NOR,Norway,I,UEFA,false
+ARG,Argentina,J,CONMEBOL,false
+ALG,Algeria,J,CAF,false
+AUT,Austria,J,UEFA,false
+JOR,Jordan,J,AFC,false
+POR,Portugal,K,UEFA,false
+COD,DR Congo,K,CAF,false
+UZB,Uzbekistan,K,AFC,false
+COL,Colombia,K,CONMEBOL,false
+GHA,Ghana,L,CAF,false
+PAN,Panama,L,CONCACAF,false
+ENG,England,L,UEFA,false
+CRO,Croatia,L,UEFA,false
