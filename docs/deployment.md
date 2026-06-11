@@ -60,6 +60,8 @@ Preferred first deployment path:
 6. Set `BACKEND_CORS_ORIGINS` to the frontend URL.
 7. Verify `/health`, `/matches/upcoming`, `/predictions/1`, and the frontend match center.
 
+For the one-Droplet path, use [docs/digitalocean.md](digitalocean.md). It runs Caddy in front of the frontend and backend, keeps PostgreSQL private to the Docker network, and exposes the API under `/api`.
+
 ## Release Checklist
 
 - Backend image starts without `--reload`.

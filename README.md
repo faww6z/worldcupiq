@@ -69,6 +69,8 @@ Open:
 
 Deployment notes live in [docs/deployment.md](docs/deployment.md).
 
+DigitalOcean Droplet instructions live in [docs/digitalocean.md](docs/digitalocean.md).
+
 ## Backend Tests
 
 ```bash
@@ -98,7 +100,7 @@ The current model is intentionally simple and transparent. See [docs/limitations
 
 ## Roadmap
 
-1. Deploy the MVP with a production PostgreSQL database.
+1. Deploy the MVP to a DigitalOcean Droplet.
 2. Add historical international results cleaning.
 3. Replace seeded strengths with ratings built from cleaned historical matches.
 4. Add official tiebreaker logic, best-third-place ranking, and knockout-stage simulation.

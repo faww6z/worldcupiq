@@ -1,4 +1,6 @@
 .env
+.env.production
+.env.droplet
 .venv/
 __pycache__/
 .pytest_cache/
